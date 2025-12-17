@@ -13,39 +13,21 @@ st.markdown(
        AJUSTES GERAIS DA PÁGINA
        ================================ */
 
-<<<<<<< HEAD
-    /* padding geral da área principal */
-=======
->>>>>>> 7c9d753 ("Ajustes")
     .block-container {
         padding-top: 1.9rem !important;
         padding-bottom: 0.1rem !important;
     }
 
-<<<<<<< HEAD
-    /* cada "bloco" vertical padrão do Streamlit (linha) */
-    div[data-testid="stVerticalBlock"] {
-        gap: 0.15rem !important;  /* espaço entre os elementos empilhados */
-        margin-bottom: 0.1rem !important;
-    }
-
-    /* containers internos dos elementos (markdown, métricas, etc) */
-=======
     div[data-testid="stVerticalBlock"] {
         gap: 0.15rem !important;
         margin-bottom: 0.1rem !important;
     }
 
->>>>>>> 7c9d753 ("Ajustes")
     .element-container {
         margin-bottom: 0.1rem !important;
         padding-bottom: 0.0rem !important;
     }
 
-<<<<<<< HEAD
-    /* markdown (títulos e textos) */
-=======
->>>>>>> 7c9d753 ("Ajustes")
     div[data-testid="stMarkdownContainer"] p {
         margin-block-start: 0.15rem !important;
         margin-block-end: 0.15rem !important;
@@ -56,10 +38,6 @@ st.markdown(
         margin-bottom: 0.15rem !important;
     }
 
-<<<<<<< HEAD
-    /* reduz espaço entre colunas */
-=======
->>>>>>> 7c9d753 ("Ajustes")
     .stColumn {
         padding-right: 0.15rem !important;
         padding-left: 0.15rem !important;
@@ -70,13 +48,8 @@ st.markdown(
        ================================ */
 
     div[data-testid="stMetric"] {
-<<<<<<< HEAD
-        padding: 0.0rem 0.05rem !important;   /* margens internas */
-        margin: 0.05rem 0 !important;         /* espaço entre cards */
-=======
         padding: 0.0rem 0.05rem !important;
         margin: 0.05rem 0 !important;
->>>>>>> 7c9d753 ("Ajustes")
     }
 
     div[data-testid="stMetricLabel"] {
@@ -100,58 +73,32 @@ st.markdown(
        ESTILO DO MENU LATERAL (SIDEBAR)
        ================================ */
 
-<<<<<<< HEAD
-    /* fundo e cor base da sidebar */
-    section[data-testid="stSidebar"] {
-        background-color: #0f1117 !important; 
-        color: #e5e7eb !important;
-    }
-
-    /* labels dos inputs (Ano, Meses, etc.) */
-=======
     section[data-testid="stSidebar"] {
         background-color: #0f1117 !important;
         color: #e5e7eb !important;
     }
 
->>>>>>> 7c9d753 ("Ajustes")
     section[data-testid="stSidebar"] label {
         color: #e5e7eb !important;
         font-weight: 600 !important;
     }
 
-<<<<<<< HEAD
-    /* itens do menu lateral (botões das páginas) */
-=======
->>>>>>> 7c9d753 ("Ajustes")
     section[data-testid="stSidebar"] button {
         color: #f3f4f6 !important;
         background-color: transparent !important;
     }
 
-<<<<<<< HEAD
-    /* texto genérico na sidebar (spans, links, parágrafos) */
-=======
->>>>>>> 7c9d753 ("Ajustes")
     section[data-testid="stSidebar"] span,
     section[data-testid="stSidebar"] a,
     section[data-testid="stSidebar"] p {
         color: #f1f5f9 !important;
     }
 
-<<<<<<< HEAD
-    /* componentes de select/multiselect na sidebar */
-=======
->>>>>>> 7c9d753 ("Ajustes")
     section[data-testid="stSidebar"] .stSelectbox,
     section[data-testid="stSidebar"] .stMultiSelect {
         color: #ffffff !important;
     }
 
-<<<<<<< HEAD
-    /* texto interno das opções do dropdown */
-=======
->>>>>>> 7c9d753 ("Ajustes")
     section[data-testid="stSidebar"] div[data-baseweb="select"] * {
         color: #000000 !important;
     }
@@ -161,23 +108,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7c9d753 ("Ajustes")
 # ============================
 # FUNÇÕES AUXILIARES (ETL)
 # ============================
 
-<<<<<<< HEAD
-def carregar_secoes_csv(conteudo_bytes):
-    """
-    Lê um CSV em texto com seções iniciadas por '##NomeSecao'
-    e devolve um dicionário {nome_secao: [linhas_csv]}
-    """
-=======
 def carregar_secoes_csv(conteudo_bytes: bytes) -> dict:
->>>>>>> 7c9d753 ("Ajustes")
     texto = conteudo_bytes.decode("utf-8-sig")
     linhas = texto.splitlines()
 
@@ -188,10 +123,6 @@ def carregar_secoes_csv(conteudo_bytes: bytes) -> dict:
     for linha in linhas:
         linha = linha.strip()
         if linha.startswith("##"):
-<<<<<<< HEAD
-            # Fecha seção anterior
-=======
->>>>>>> 7c9d753 ("Ajustes")
             if secao_atual and buffer:
                 secoes[secao_atual] = buffer
                 buffer = []
@@ -205,15 +136,7 @@ def carregar_secoes_csv(conteudo_bytes: bytes) -> dict:
     return secoes
 
 
-<<<<<<< HEAD
-def criar_dataframe(dados):
-    """
-    Recebe uma lista de linhas (strings) e converte em DataFrame.
-    Supõe primeira linha como header.
-    """
-=======
 def criar_dataframe(dados: list[str]) -> pd.DataFrame:
->>>>>>> 7c9d753 ("Ajustes")
     if not dados:
         return pd.DataFrame()
 
@@ -221,16 +144,6 @@ def criar_dataframe(dados: list[str]) -> pd.DataFrame:
     linhas = list(leitor)
     if len(linhas) < 2:
         return pd.DataFrame(columns=linhas[0]) if linhas else pd.DataFrame()
-<<<<<<< HEAD
-    return pd.DataFrame(linhas[1:], columns=linhas[0])
-
-
-def tratar_decimal(df, col):
-    return pd.to_numeric(df[col].astype(str).str.replace(",", ".", regex=False), errors="coerce")
-
-
-def tratar_data_hora(df, col_data):
-=======
 
     return pd.DataFrame(linhas[1:], columns=linhas[0])
 
@@ -243,22 +156,13 @@ def tratar_decimal(df: pd.DataFrame, col: str) -> pd.Series:
 
 
 def tratar_data_hora(df: pd.DataFrame, col_data: str) -> pd.DataFrame:
->>>>>>> 7c9d753 ("Ajustes")
     df[col_data] = pd.to_datetime(df[col_data], errors="coerce")
     df["data"] = df[col_data].dt.date
     df["hora"] = df[col_data].dt.time
     return df
 
 
-<<<<<<< HEAD
-def processar_arquivo(conteudo_bytes):
-    """
-    Executa TODO o ETL original usando o conteúdo do arquivo carregado.
-    Retorna os 4 dataframes: combustivel, despesas, servicos, rotas
-    """
-=======
 def processar_arquivo(conteudo_bytes: bytes):
->>>>>>> 7c9d753 ("Ajustes")
     secoes = carregar_secoes_csv(conteudo_bytes)
 
     df_combustivel = criar_dataframe(secoes.get("Refuelling", []))
@@ -371,23 +275,6 @@ def processar_arquivo(conteudo_bytes: bytes):
             inplace=True,
         )
 
-<<<<<<< HEAD
-        df_combustivel["odometro"] = tratar_decimal(df_combustivel, "odometro")
-        df_combustivel["custo_por_litro"] = tratar_decimal(df_combustivel, "custo_por_litro")
-        df_combustivel["custo"] = tratar_decimal(df_combustivel, "custo")
-        df_combustivel["volume_abastecido"] = tratar_decimal(df_combustivel, "volume_abastecido")
-        df_combustivel["distancia_percorrida"] = tratar_decimal(df_combustivel, "distancia_percorrida")
-
-        df_combustivel["media"] = pd.to_numeric(
-            df_combustivel["media"]
-            .astype(str)
-            .str.replace(r"[^\d,.]", "", regex=True)
-            .str.replace(",", "."),
-            errors="coerce",
-        )
-
-        df_combustivel = tratar_data_hora(df_combustivel, "data_hora")
-=======
         for c in ["odometro", "custo_por_litro", "custo", "volume_abastecido", "distancia_percorrida"]:
             if c in df_combustivel.columns:
                 df_combustivel[c] = tratar_decimal(df_combustivel, c)
@@ -509,7 +396,6 @@ def processar_arquivo(conteudo_bytes: bytes):
                 stop_idx:,
                 ["volume_abastecido_acumulado", "distancia_calculada_acumulada", "media_acumulada"]
             ] = np.nan
->>>>>>> 7c9d753 ("Ajustes")
 
     # ============================
     # TRATAMENTO - SERVIÇOS
@@ -547,38 +433,18 @@ st.title("🏁 Controle Veicular")
 st.markdown(
     """
 Carregue o arquivo **BD.csv** e navegue pelas telas:
-<<<<<<< HEAD
-
-=======
->>>>>>> 7c9d753 ("Ajustes")
 """
 )
 
 uploaded_file = st.file_uploader("Carregue o arquivo BD.csv", type=["csv"], key="upload_bd")
 
 if uploaded_file is not None:
-<<<<<<< HEAD
-    # Lê conteúdo do arquivo
-    conteudo = uploaded_file.getvalue()
-    file_hash = hash(conteudo)
-
-    # Só reprocesa se for um arquivo diferente
-    if "file_hash" not in st.session_state or st.session_state["file_hash"] != file_hash:
-        with st.spinner("Processando arquivo..."):
-            (
-                df_combustivel,
-                df_despesas,
-                df_servicos,
-                df_rotas,
-            ) = processar_arquivo(conteudo)
-=======
     conteudo = uploaded_file.getvalue()
     file_hash = hash(conteudo)
 
     if "file_hash" not in st.session_state or st.session_state["file_hash"] != file_hash:
         with st.spinner("Processando arquivo..."):
             (df_combustivel, df_despesas, df_servicos, df_rotas) = processar_arquivo(conteudo)
->>>>>>> 7c9d753 ("Ajustes")
 
         st.session_state["file_hash"] = file_hash
         st.session_state["df_combustivel"] = df_combustivel
@@ -590,10 +456,6 @@ if uploaded_file is not None:
     else:
         st.info("Este arquivo já foi processado. Os dados em memória continuam os mesmos.")
 
-<<<<<<< HEAD
-# Mostra um resumo rápido se já tiver dados em memória
-=======
->>>>>>> 7c9d753 ("Ajustes")
 if "df_combustivel" in st.session_state:
     st.subheader("Resumo dos dados carregados")
     col1, col2, col3, col4 = st.columns(4)
@@ -607,8 +469,4 @@ if "df_combustivel" in st.session_state:
     with col4:
         st.metric("Registros de Trajetos", len(st.session_state["df_rotas"]))
 else:
-<<<<<<< HEAD
     st.warning("Nenhum arquivo processado ainda. Faça o upload do **BD.csv** acima.")
-=======
-    st.warning("Nenhum arquivo processado ainda. Faça o upload do **BD.csv** acima.")
->>>>>>> 7c9d753 ("Ajustes")

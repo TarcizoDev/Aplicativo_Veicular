@@ -353,8 +353,6 @@ if not df_filtrado.empty:
             textposition="outside",
             cliponaxis=False,
         )
-<<<<<<< HEAD
-=======
 
         # ✅ FORÇA EXIBIR TODOS OS RÓTULOS NO EIXO X (principalmente no modo "Mês")
         if opcao_tempo_serv == "Mês":
@@ -371,7 +369,6 @@ if not df_filtrado.empty:
         else:
             fig_totais.update_xaxes(type="category")
 
->>>>>>> 7c9d753 ("Ajustes")
         st.plotly_chart(fig_totais, use_container_width=True)
 else:
     st.info("Sem dados para o gráfico de totais por período.")

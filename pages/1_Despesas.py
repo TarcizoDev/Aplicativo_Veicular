@@ -291,8 +291,6 @@ else:
             cliponaxis=False,
         )
 
-<<<<<<< HEAD
-=======
         # Ajustar espaçamento dos rotulos de dados
         fig_tipo.update_layout(
             yaxis=dict(categoryorder="total ascending", automargin=True),
@@ -300,7 +298,6 @@ else:
             margin=dict(l=10, r=60, t=40, b=10),  # aumenta 'r' se ainda cortar
             )
 
->>>>>>> 7c9d753 ("Ajustes")
         fig_tipo.update_layout(yaxis={"categoryorder": "total ascending"})
         st.plotly_chart(fig_tipo, use_container_width=True)
 
@@ -331,8 +328,6 @@ else:
             cliponaxis=False,
         )
 
-<<<<<<< HEAD
-=======
         # Ajustar espaçamento dos rotulos de dados
         fig_local.update_layout(
             yaxis=dict(categoryorder="total ascending", automargin=True),
@@ -340,7 +335,6 @@ else:
             margin=dict(l=10, r=60, t=40, b=10),  # aumenta 'r' se ainda cortar
             )
 
->>>>>>> 7c9d753 ("Ajustes")
         fig_local.update_layout(yaxis={"categoryorder": "total ascending"})
         st.plotly_chart(fig_local, use_container_width=True)
 
@@ -363,8 +357,6 @@ else:
                 cliponaxis=False,
             )
 
-<<<<<<< HEAD
-=======
             # ✅ FORÇA EXIBIR TODOS OS RÓTULOS NO EIXO X (principalmente no modo "Mês")
             if opcao_tempo == "Mês":
                 periodos = df_tempo["periodo"].tolist()
@@ -380,7 +372,6 @@ else:
             else:
                 fig_tempo.update_xaxes(type="category")
 
->>>>>>> 7c9d753 ("Ajustes")
             st.plotly_chart(fig_tempo, use_container_width=True)
         else:
             st.info("Sem dados suficientes para o gráfico de totais por período.")

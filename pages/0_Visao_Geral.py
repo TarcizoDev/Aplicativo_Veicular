@@ -1,11 +1,8 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-<<<<<<< HEAD
-=======
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
->>>>>>> 7c9d753 ("Ajustes")
 
 # ============================
 # ESTILO GLOBAL
@@ -20,11 +17,7 @@ st.markdown(
     /* padding geral da área principal */
     .block-container {
         padding-top: 1.9rem !important;
-<<<<<<< HEAD
-        padding-bottom: 0.1rem !important;
-=======
         padding-bottom: 1.1rem !important;
->>>>>>> 7c9d753 ("Ajustes")
     }
 
     /* cada "bloco" vertical padrão do Streamlit (linha) */
@@ -36,11 +29,7 @@ st.markdown(
     /* containers internos dos elementos (markdown, métricas, etc) */
     .element-container {
         margin-bottom: 0.1rem !important;
-<<<<<<< HEAD
-        padding-bottom: 0.0rem !important;
-=======
         padding-bottom: 0.5rem !important;
->>>>>>> 7c9d753 ("Ajustes")
     }
 
     /* markdown (títulos e textos) */
@@ -277,10 +266,7 @@ df_rotas_f = filtrar_por_periodo(df_rotas, "data_inicio", ano_sel, meses_sel)
 # ============================
 # BLOCO 1 – RESUMO DE CUSTOS
 # ============================
-<<<<<<< HEAD
-=======
 st.markdown("---")
->>>>>>> 7c9d753 ("Ajustes")
 st.markdown("## 💸 - Resumo de Despesas")
 
 # --- Totais gerais por categoria (já filtrados) ---
@@ -484,8 +470,6 @@ with col_g2:
                 textposition="outside",
                 cliponaxis=False,
             )
-<<<<<<< HEAD
-=======
 
             # ✅ FORÇA EXIBIR TODOS OS RÓTULOS NO EIXO X (principalmente no modo "Mês")
             if opcao_tempo == "Mês":
@@ -502,17 +486,13 @@ with col_g2:
             else:
                 fig_totais.update_xaxes(type="category")
 
->>>>>>> 7c9d753 ("Ajustes")
             fig_totais.update_layout(height=360)
             st.plotly_chart(fig_totais, use_container_width=True)
 
 # ============================
 # BLOCO 2 – RESUMO DE USO (TRAJETOS)
 # ============================
-<<<<<<< HEAD
-=======
 st.markdown("---")
->>>>>>> 7c9d753 ("Ajustes")
 st.markdown("## 🗺️ – Resumo de Uso do Veículo")
 
 # --- Distância total, menor e maior hodômetro ---
@@ -596,10 +576,6 @@ with col_top1:
                 textposition="outside",
                 cliponaxis=False,
             )
-<<<<<<< HEAD
-            fig_top_dest.update_layout(yaxis=dict(categoryorder="total ascending"))
-            st.plotly_chart(fig_top_dest, use_container_width=True)
-=======
             # 1) margem extra (principalmente à direita)
             fig_top_dest.update_layout(
                 yaxis=dict(categoryorder="total ascending", automargin=True),
@@ -611,7 +587,6 @@ with col_top1:
             fig_top_dest.update_xaxes(range=[0, max_x * 1.20])  # 20% de folga
 
             st.plotly_chart(fig_top_dest, use_container_width=True, key="top_destinos")
->>>>>>> 7c9d753 ("Ajustes")
     else:
         st.write("Sem dados de destino para o período selecionado.")
 
@@ -652,12 +627,6 @@ with col_top2:
                 textposition="outside",
                 cliponaxis=False,
             )
-<<<<<<< HEAD
-            fig_top_mot.update_layout(yaxis=dict(categoryorder="total ascending"))
-            st.plotly_chart(fig_top_mot, use_container_width=True)
-    else:
-        st.write("Sem dados de motivo para o período selecionado.")
-=======
             # 1) margem extra (principalmente à direita)
             fig_top_mot.update_layout(
                 yaxis=dict(categoryorder="total ascending", automargin=True),
@@ -911,4 +880,3 @@ grafico_categoria(
     col_ckm="ckm_comb",
     key="det_comb",
 )
->>>>>>> 7c9d753 ("Ajustes")

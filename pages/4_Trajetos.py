@@ -459,8 +459,6 @@ if not df_filtrado.empty:
             textposition="outside",
             cliponaxis=False,
         )
-<<<<<<< HEAD
-=======
 # ✅ FORÇA EXIBIR TODOS OS RÓTULOS NO EIXO X (principalmente no modo "Mês")
         if opcao_periodo == "Mês":
             periodos = df_tempo["periodo"].tolist()
@@ -477,7 +475,6 @@ if not df_filtrado.empty:
             fig_tempo.update_xaxes(type="category")
 
 
->>>>>>> 7c9d753 ("Ajustes")
         st.plotly_chart(fig_tempo, use_container_width=True)
 
 else:

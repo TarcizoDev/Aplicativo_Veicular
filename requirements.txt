@@ -7,9 +7,4 @@ plotly>=5.0.0
 matplotlib
 seaborn
 openpyxl
-<<<<<<< HEAD
 watchdog
-=======
-watchdog
-jupyter
->>>>>>> 7c9d753 ("Ajustes")
