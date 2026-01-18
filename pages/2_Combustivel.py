@@ -4,12 +4,15 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 
+# ============================
+# ESTILO GLOBAL (mesmo padrão)
+# ============================
 st.markdown(
     """
     <style>
-    .block-container { padding-top: 1.9rem !important; padding-bottom: 0.1rem !important; }
+    .block-container { padding-top: 2.5rem !important; padding-bottom: 1.1rem !important; }
     div[data-testid="stVerticalBlock"] { gap: 0.15rem !important; margin-bottom: 0.1rem !important; }
-    .element-container { margin-bottom: 0.1rem !important; padding-bottom: 0.0rem !important; }
+    .element-container { margin-bottom: 0.1rem !important; padding-bottom: 0.5rem !important; }
     div[data-testid="stMarkdownContainer"] p { margin-block-start: 0.15rem !important; margin-block-end: 0.15rem !important; }
     h1, h2, h3, h4 { margin-top: 0.15rem !important; margin-bottom: 0.15rem !important; }
     .stColumn { padding-right: 0.15rem !important; padding-left: 0.15rem !important; }
@@ -19,12 +22,15 @@ st.markdown(
     div[data-testid="stMetricValue"] { font-size: 0.88rem !important; font-weight: 600 !important; margin-top: -0.15rem !important; margin-bottom: -0.05rem !important; }
     div[data-testid="stMetricDelta"] { font-size: 0.70rem !important; margin-top: -0.15rem !important; }
 
-    section[data-testid="stSidebar"] { background-color: #0f1117 !important; color: #e5e7eb !important; }
-    section[data-testid="stSidebar"] label { color: #e5e7eb !important; font-weight: 600 !important; }
-    section[data-testid="stSidebar"] button { color: #f3f4f6 !important; background-color: transparent !important; }
-    section[data-testid="stSidebar"] span, section[data-testid="stSidebar"] a, section[data-testid="stSidebar"] p { color: #f1f5f9 !important; }
-    section[data-testid="stSidebar"] .stSelectbox, section[data-testid="stSidebar"] .stMultiSelect { color: #ffffff !important; }
-    section[data-testid="stSidebar"] div[data-baseweb="select"] * { color: #000000 !important; }
+    section[data-testid="stSidebar"] { background-color: #c3d0dd !important; color: #1e293b !important; }
+    section[data-testid="stSidebar"] label { color: #1e293b !important; font-weight: 600 !important; }
+    section[data-testid="stSidebar"] button { color: #334155 !important; background-color: transparent !important; }
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] a,
+    section[data-testid="stSidebar"] p { color: #475569 !important; }
+    section[data-testid="stSidebar"] .stSelectbox,
+    section[data-testid="stSidebar"] .stMultiSelect { color: #020617 !important; }
+    section[data-testid="stSidebar"] div[data-baseweb="select"] * { color: #020617 !important; }
     </style>
     """,
     unsafe_allow_html=True,

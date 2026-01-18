@@ -2,119 +2,37 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+# ============================
+# ESTILO GLOBAL (mesmo padrão)
+# ============================
 st.markdown(
     """
     <style>
-    /* ================================
-       AJUSTES GERAIS DA PÁGINA
-       ================================ */
+    .block-container { padding-top: 2.5rem !important; padding-bottom: 1.1rem !important; }
+    div[data-testid="stVerticalBlock"] { gap: 0.15rem !important; margin-bottom: 0.1rem !important; }
+    .element-container { margin-bottom: 0.1rem !important; padding-bottom: 0.5rem !important; }
+    div[data-testid="stMarkdownContainer"] p { margin-block-start: 0.15rem !important; margin-block-end: 0.15rem !important; }
+    h1, h2, h3, h4 { margin-top: 0.15rem !important; margin-bottom: 0.15rem !important; }
+    .stColumn { padding-right: 0.15rem !important; padding-left: 0.15rem !important; }
 
-    /* padding geral da área principal */
-    .block-container {
-        padding-top: 1.9rem !important;
-        padding-bottom: 0.1rem !important;
-    }
+    div[data-testid="stMetric"] { padding: 0.0rem 0.05rem !important; margin: 0.05rem 0 !important; }
+    div[data-testid="stMetricLabel"] { font-size: 0.72rem !important; margin-bottom: -0.10rem !important; }
+    div[data-testid="stMetricValue"] { font-size: 0.88rem !important; font-weight: 600 !important; margin-top: -0.15rem !important; margin-bottom: -0.05rem !important; }
+    div[data-testid="stMetricDelta"] { font-size: 0.70rem !important; margin-top: -0.15rem !important; }
 
-    /* cada "bloco" vertical padrão do Streamlit (linha) */
-    div[data-testid="stVerticalBlock"] {
-        gap: 0.15rem !important;  /* espaço entre os elementos empilhados */
-        margin-bottom: 0.1rem !important;
-    }
-
-    /* containers internos dos elementos (markdown, métricas, etc) */
-    .element-container {
-        margin-bottom: 0.1rem !important;
-        padding-bottom: 0.0rem !important;
-    }
-
-    /* markdown (títulos e textos) */
-    div[data-testid="stMarkdownContainer"] p {
-        margin-block-start: 0.15rem !important;
-        margin-block-end: 0.15rem !important;
-    }
-
-    h1, h2, h3, h4 {
-        margin-top: 0.15rem !important;
-        margin-bottom: 0.15rem !important;
-    }
-
-    /* reduz espaço entre colunas */
-    .stColumn {
-        padding-right: 0.15rem !important;
-        padding-left: 0.15rem !important;
-    }
-
-    /* ================================
-       AJUSTES PARA CARDS (st.metric)
-       ================================ */
-
-    div[data-testid="stMetric"] {
-        padding: 0.0rem 0.05rem !important;   /* margens internas */
-        margin: 0.05rem 0 !important;         /* espaço entre cards */
-    }
-
-    div[data-testid="stMetricLabel"] {
-        font-size: 0.72rem !important;
-        margin-bottom: -0.10rem !important;
-    }
-
-    div[data-testid="stMetricValue"] {
-        font-size: 0.88rem !important;
-        font-weight: 600 !important;
-        margin-top: -0.15rem !important;
-        margin-bottom: -0.05rem !important;
-    }
-
-    div[data-testid="stMetricDelta"] {
-        font-size: 0.70rem !important;
-        margin-top: -0.15rem !important;
-    }
-
-    /* ================================
-       ESTILO DO MENU LATERAL (SIDEBAR)
-       ================================ */
-
-    /* fundo e cor base da sidebar */
-    section[data-testid="stSidebar"] {
-        background-color: #0f1117 !important; 
-        color: #e5e7eb !important;
-    }
-
-    /* labels dos inputs (Ano, Meses, etc.) */
-    section[data-testid="stSidebar"] label {
-        color: #e5e7eb !important;
-        font-weight: 600 !important;
-    }
-
-    /* itens do menu lateral (botões das páginas) */
-    section[data-testid="stSidebar"] button {
-        color: #f3f4f6 !important;
-        background-color: transparent !important;
-    }
-
-    /* texto genérico na sidebar (spans, links, parágrafos) */
+    section[data-testid="stSidebar"] { background-color: #c3d0dd !important; color: #1e293b !important; }
+    section[data-testid="stSidebar"] label { color: #1e293b !important; font-weight: 600 !important; }
+    section[data-testid="stSidebar"] button { color: #334155 !important; background-color: transparent !important; }
     section[data-testid="stSidebar"] span,
     section[data-testid="stSidebar"] a,
-    section[data-testid="stSidebar"] p {
-        color: #f1f5f9 !important;
-    }
-
-    /* componentes de select/multiselect na sidebar */
+    section[data-testid="stSidebar"] p { color: #475569 !important; }
     section[data-testid="stSidebar"] .stSelectbox,
-    section[data-testid="stSidebar"] .stMultiSelect {
-        color: #ffffff !important;
-    }
-
-    /* texto interno das opções do dropdown */
-    section[data-testid="stSidebar"] div[data-baseweb="select"] * {
-        color: #000000 !important;
-    }
-
+    section[data-testid="stSidebar"] .stMultiSelect { color: #020617 !important; }
+    section[data-testid="stSidebar"] div[data-baseweb="select"] * { color: #020617 !important; }
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 
 st.title("💸 Despesas – Custos do Veículo")
 

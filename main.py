@@ -6,6 +6,8 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 
+st.set_page_config(page_title="🏁 Controle Veicular", layout="wide")
+
 st.markdown(
     """
     <style>
@@ -426,8 +428,6 @@ def processar_arquivo(conteudo_bytes: bytes):
 # ============================
 # APP STREAMLIT - HOME
 # ============================
-
-st.set_page_config(page_title="🏁 Controle Veicular", layout="wide")
 
 st.title("🏁 Controle Veicular")
 st.markdown(
